@@ -1,0 +1,174 @@
+This Java program implements a singly linked list along with various operations 
+like insertion at the beginning, 
+insertion at the end, 
+insertion after a given value, 
+deletion at the beginning, 
+deletion at a given value, 
+searching for a value, 
+and reversing the linked list.
+
+
+
+
+
+public class Singly 
+{
+	Node head;
+	class Node
+	{
+		int data;
+		Node next;
+		Node(int data)
+		{
+			this.data=data;
+			this.next=null;
+		}
+	}
+	
+	public void insertatfirst(int data)
+	{
+		Node newnode = new Node(data);
+		if(head==null)
+		{
+			head=newnode;
+			return;
+		}
+		newnode.next=head;
+		head=newnode;
+	}
+	public void insertatafter(int data,int  value)
+	{
+		Node newnode = new Node(data);
+		if(head==null)
+		{
+			head=newnode;
+			return;
+		}
+		
+		Node currnode = head;
+		while(currnode.next!=null && currnode.data!=value)
+		{
+			currnode=currnode.next;	
+		}
+		newnode.next=currnode.next;
+		currnode.next=newnode;
+		return;
+	}
+	public void insertion_at_end(int data)
+	{
+		Node newnode = new Node(data);
+		if(head==null)
+		{
+			head=newnode;
+			return;
+		}
+		Node currnode = head;
+		while(currnode.next!=null) {
+			currnode=currnode.next;
+		}
+		currnode.next=newnode;
+	}
+	public void deleteatfirst(int data)
+	{
+		Node newnode = new Node(data);
+		if(head==null)
+		{
+			head=newnode;
+			return;
+		}
+		System.out.println(head.data+"deleted");
+		head=head.next;
+	
+	}
+	public void reverse()
+	{
+		if(head==null || head.next==null)
+		{
+			System.out.println("not possible");
+			return;
+		}
+		Node prev = head;
+		Node currnode = head.next;
+		while(currnode!=null)
+		{
+			Node nextnode = currnode.next;
+			currnode.next=prev;
+			prev=currnode;
+			currnode=nextnode;
+		}
+		head.next=null;
+		head=prev;
+	}
+	public void deleteatmid(int value)
+	{
+		if(head==null || head.next==null)
+		{
+			System.out.println("if the list is empty or having single node");
+			return;
+		}
+		Node prev=null;
+		Node currnode=head;
+		while(currnode.next!= null &&currnode.data!=value)
+		{
+			prev=currnode;
+		    currnode=currnode.next;
+		}
+		
+		if(currnode == null) 
+		{
+			System.out.println(value+" not found.");
+			return;
+		}
+		prev.next=currnode.next;
+				
+	}
+	public void search(int  value)
+	{
+		if(head==null)
+		{
+			return;
+		}
+		
+		Node currnode = head;
+		while(currnode.next!=null || currnode.data==value)
+		{
+			System.out.println(" found");
+			currnode=currnode.next;	
+		}
+
+		return;
+	}
+	
+	public void display()
+	{
+		Node currnode=head;
+		while(currnode!=null)
+		{
+			System.out.print(currnode.data+"->");
+			currnode = currnode.next;
+		}
+		System.out.print("NULL");
+		System.out.println();
+	}
+
+	public static void main(String[] args)
+	{
+		Singly s = new Singly();
+		s.insertatfirst(0);
+		s.insertatfirst(1);
+		
+		s.insertatfirst(6);
+		s.display();
+		
+		s.insertion_at_end(9);
+		s.insertatafter(2, 1);
+		
+		s.display();
+		s.reverse();
+		s.display();
+		s.deleteatmid(9);
+		s.display();
+		s.search(0);
+
+	}
+}
