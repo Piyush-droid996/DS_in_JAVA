@@ -1,0 +1,61 @@
+import java.util.Scanner;
+
+class Stack {
+    private int top = -1; // Initialize top to -1 to indicate an empty stack
+    private final int size = 10; // Maximum size of the stack
+    private final int[] a = new int[size]; // Array to store stack elements
+
+    // Method to push an element onto the stack
+    void push(Scanner sc) {
+        if (top == size - 1) {
+            System.out.println("Overflow: Stack is full");
+        } else {
+            System.out.println("Enter element to push:");
+            int element = sc.nextInt();
+            a[++top] = element; // Increment top before assigning element
+            System.out.println("Item inserted");
+        }
+    }
+
+    // Method to pop an element from the stack
+    void pop() {
+        if (top == -1) {
+            System.out.println("Underflow: Stack is empty");
+        } else {
+            System.out.print(a[top] + " -> "); // Print the element being popped
+            top--; // Decrement top after popping element
+            System.out.println("Item deleted");
+        }
+    }
+
+    // Method to display the elements of the stack
+    void display() {
+        if (top == -1) {
+            System.out.println("Stack is empty");
+        } else {
+            System.out.println("Items in the stack are:");
+            for (int j = top; j >= 0; j--) {
+                System.out.println(a[j]);
+            }
+        }
+    }
+}
+
+public class STACK_USING_ARRAY {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        Stack s = new Stack();
+        
+        s.push(sc);
+        s.display();
+        
+        s.push(sc);
+        s.push(sc);
+        s.display();
+        
+        s.pop();
+        s.display();
+        
+        sc.close(); // Close the Scanner object to prevent resource leak
+    }
+}
