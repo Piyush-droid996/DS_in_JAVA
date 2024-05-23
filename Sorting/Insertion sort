@@ -1,0 +1,24 @@
+public class Insertion_sort {
+
+    public static void main(String[] args) {
+        int[] arr = {7, 4, 1, 9, 45};
+        int temp;
+        for (int i = 1; i < arr.length; i++) {
+            temp = arr[i];
+            int j;
+
+//This line starts another loop that iterates backwards from the current position i - 1 down to 0.
+//It continues as long as j is greater than or equal to 0 and the element at index j is greater than the value of temp.
+
+            for (j = i - 1; j >= 0 && arr[j] > temp; j--) {
+                arr[j + 1] = arr[j];
+            }
+            arr[j + 1] = temp;
+        }
+
+        // Print the sorted array
+        for (int num : arr) {
+            System.out.print(num + " ");
+        }
+    }
+}
