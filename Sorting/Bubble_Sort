@@ -1,0 +1,45 @@
+
+//bubble sort runs loop n-1
+
+
+class sorting
+{
+	public void printarr()
+	{
+		for(int i=0;i<arr.length-1 ;i++)
+		{
+			System.out.println();
+		}
+	}
+}
+public class Bubble_sort {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+   int[] arr= {7,12,3,4,1};
+   //starts from 7 -> 7 compare to 12  but 7 is lesser comprae to 12 so no change
+   // Now, 12 compare to 3 now 7 3 12 hoga  becauswe 12 is greater
+   //now compare 12 with 4 again shift hoga 7 3 4 12
+   //largest element compare hote hote end tak pauch jaaega  
+ 
+   //output of first loop 7,3,4,12
+   
+   //now second loop chalega
+ // 7 or 3 me compare 3 is small so-->>> 3->4->7->12;
+   for(int i=0; i<arr.length-1; i++)
+   {
+	   for(int j=0; j<arr.length-1; j++)
+	   {
+		   if(arr[i]>arr[j])
+				   {
+			      
+			             int emp=arr[i];
+			             arr[i]=arr[i+1];
+			             arr[i]=temp;
+			   
+				   }
+	   }
+   }
+	}
+
+}
